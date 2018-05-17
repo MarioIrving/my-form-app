@@ -10,13 +10,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../src/my-app.html">
 
 <dom-module id="my-table-form">
   <template>
     <style include="shared-styles">
       :host {
         display: block;
-
         padding: 10px;
       }
 
@@ -34,6 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         color: #fff;
         font-size: 13px;
+        margin-top: 5px;
         text-align: center;
         text-decoration: none;
       }
@@ -42,33 +45,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: #8e7a54;
       }
 
-      input[type=text] {
-        border: none;
-        border-bottom: 2px solid  #008CBA;
-        font-size: 16px;
-        margin-top: 10px;
-        width: 100%;
-      }
+
     </style>
 
     <div class="card">
-    <label for="">FullName</label>
-
-      <dom-repeat items="[[icons]]" as="icon">
-        <template>
+  <dom-repeat is="dom-repeat" items="{{arrayList}}" >
+      <template >
             <div class="grid">
-              <h5 class="footer_card-title">[[icon.fullName]]</h5>
-              <button class="button">edit</button>
+              <paper-input label="FullName" value="[[item.fullName]]" disabled ></paper-input>
+              <paper-button index=[[index]] class="button" on-click="editText">edit</paper-button>
             </div>
-        </template>
-      </dom-repeat>
+      </template>
+</dom-repeat>
 
     </div>
   </template>
 
   <script>
     class MyTableForm extends Polymer.Element {
-      static get is() { return 'my-table-form'; }
+      static get is() {
+        return 'my-table-form';
+      }
+
+      static get properties() {
+          return {
+              fullName: {
+                  type: Array,
+                  value: '',
+                  notify: true
+              }
+          };
+      }
+
+      editText(event) {
+          this.dispatchEvent(new CustomEvent('text-edit', {
+              composed: true,
+              bubbles: true,
+              detail: {
+                fullNameIndex: event.target.index
+              }
+          }));
+
+        _pageChanged(editForm);
+
+      }
+
     }
 
     window.customElements.define(MyTableForm.is, MyTableForm);

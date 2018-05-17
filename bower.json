@@ -17,7 +17,9 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "iron-input": "PolymerElements/iron-input#^2.1.3",
     "paper-button": "PolymerElements/paper-button#^2.1.1",
-    "iron-form": "PolymerElements/iron-form#^2.3.0"
+    "iron-form": "PolymerElements/iron-form#^2.3.0",
+    "i18n-elem": "gmacielm/i18n-elem",
+    "paper-input": "PolymerElements/paper-input#^2.2.2"
   },
   "resolutions": {
     "polymer": "^2.0.0"

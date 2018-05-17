@@ -7,9 +7,9 @@
   "menu-input": "input form",
   "menu-table": "table form",
   "menu-edit": "edit form",
-  "form-name": "fullName",
+  "input-name": "fullName",
   "button-input": "submit",
-  "button-input": "edit",
+  "button-table": "edit",
   "button-edit": "send"
 
 }

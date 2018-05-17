@@ -7,9 +7,9 @@
   "menu-input": "captura forma",
   "menu-table": "tabla forma",
   "menu-edit": "edita forma",
-  "form-name": "NombreCompleto",
+  "input-name": "NombreCompleto",
   "button-input": "enviar",
-  "button-input": "edita",
+  "button-table": "edita",
   "button-edit": "envia"
 
 }
